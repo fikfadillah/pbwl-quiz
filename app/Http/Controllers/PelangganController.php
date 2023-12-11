@@ -18,7 +18,8 @@ class PelangganController extends Controller {
         $noSeri    = Pelanggan::generateNoSeri();
         $noMeteran = Pelanggan::generateNoMeteran();
         $golongan  = Golongan::all();
-        return view('pelanggan.index', compact('rows', 'kodePel', 'noSeri', 'noMeteran', 'golongan'));
+        $golongans = Golongan::all();
+        return view('pelanggan.index', compact('rows', 'kodePel', 'noSeri', 'noMeteran', 'golongan', 'golongans'));
     }
 
     /**

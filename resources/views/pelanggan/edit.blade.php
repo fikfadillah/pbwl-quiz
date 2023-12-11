@@ -20,11 +20,11 @@
                         <label for="golongan" class="form-label">Golongan Pelanggan <sup
                                 class="text-danger fw-bold">*</sup></label>
                         <select name="pel_id_gol" id="gol" class="form-select">
-                            <option value="{{ $row->pel_id_gol }}">{{ $row->golongan->gol_nama }}</option>
-                            <hr>
-                            <hr>
-                            @foreach ($golongan as $data)
-                                <option value="{{ $data->id }}">{{ $data->gol_nama }}</option>
+                            @foreach ($golongans as $golongan)
+                                <option value="{{ $golongan->id }}"
+                                    {{ $golongan->id == $row->golongan->id ? 'selected' : '' }}>
+                                    {{ $golongan->gol_nama }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -43,8 +43,8 @@
                     <div class="mb-3">
                         <label for="aktif" class="form-label">Status <sup class="text-danger fw-bold">*</sup></label>
                         <select name="pel_aktif" id="aktif" class="form-select">
-                            <option value="Y">Aktif</option>
-                            <option value="N">Tidak Aktif</option>
+                            <option value="Y" {{ $row->pel_aktif == 'Y' ? 'selected' : '' }}>Aktif</option>
+                            <option value="N" {{ $row->pel_aktif == 'N' ? 'selected' : '' }}>Tidak Aktif</option>
                         </select>
                     </div>
                 </div>
